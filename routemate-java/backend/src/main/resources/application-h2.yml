@@ -1,0 +1,12 @@
+spring:
+  # Zero-setup demo mode: in-memory H2 instead of MySQL.
+  # Usage: mvn spring-boot:run -Dspring-boot.run.profiles=h2
+  datasource:
+    url: jdbc:h2:mem:routemate;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false

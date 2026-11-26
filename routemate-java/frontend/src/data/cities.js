@@ -1,0 +1,21 @@
+/** Preset city coordinates so users never type raw lat/lng while testing. */
+export const CITIES = [
+  { name: 'Pune', lat: 18.5204, lng: 73.8567 },
+  { name: 'Mumbai', lat: 19.076, lng: 72.8777 },
+  { name: 'Thane', lat: 19.2183, lng: 72.9781 },
+  { name: 'Navi Mumbai', lat: 19.033, lng: 73.0297 },
+  { name: 'Lonavala', lat: 18.7537, lng: 73.4068 },
+  { name: 'Nashik', lat: 19.9975, lng: 73.7898 },
+  { name: 'Ahmednagar', lat: 19.0948, lng: 74.748 },
+  { name: 'Satara', lat: 17.6805, lng: 73.9933 },
+  { name: 'Kolhapur', lat: 16.705, lng: 74.2433 },
+  { name: 'Solapur', lat: 17.6599, lng: 75.9064 },
+  { name: 'Mahabaleshwar', lat: 17.925, lng: 73.659 },
+  { name: 'Shirdi', lat: 19.7667, lng: 74.475 },
+  { name: 'Ch. Sambhajinagar', lat: 19.8762, lng: 75.3433 },
+  { name: 'Nagpur', lat: 21.1458, lng: 79.0882 },
+  { name: 'Surat', lat: 21.1702, lng: 72.8311 },
+  { name: 'Ahmedabad', lat: 23.0225, lng: 72.5714 },
+  { name: 'Ratnagiri', lat: 16.9902, lng: 73.312 },
+  { name: 'Goa (Panaji)', lat: 15.4909, lng: 73.8278 },
+];

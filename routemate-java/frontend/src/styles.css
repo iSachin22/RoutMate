@@ -1,0 +1,356 @@
+/* =============================================================
+ * RouteMate theme (built on Bootstrap 5 via react-bootstrap)
+ * ============================================================= */
+:root {
+  --rm-brand: #3d5afe;
+  --rm-brand-2: #00b0ff;
+  --rm-ink: #17233d;
+  --rm-bg: #eef2f9;
+  --rm-line: #dde5f0;
+}
+
+body {
+  margin: 0;
+  background: var(--rm-bg);
+  color: var(--rm-ink);
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+
+/* ---------- navbar ---------- */
+.rm-navbar {
+  background: linear-gradient(90deg, #1c2a63 0%, #3d5afe 55%, #00b0ff 100%);
+  padding: 0.95rem 1.4rem;
+}
+.rm-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.rm-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 1.18rem;
+  color: #fff;
+}
+.rm-brand:hover { color: #fff; }
+.rm-nav-sub { font-weight: 500; opacity: 0.85; font-size: 0.95rem; }
+.rm-nav-right { display: flex; align-items: center; gap: 0.85rem; }
+.user-chip {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 0.38rem 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+.btn-logout {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.42rem 1.05rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.btn-logout:hover, .btn-logout:focus {
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- layout cards ---------- */
+.rm-container { max-width: 1180px; margin: 0 auto; padding: 1.7rem 1.1rem 3rem; }
+.rm-card {
+  background: #fff;
+  border: 1px solid var(--rm-line);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(23, 35, 61, 0.07);
+}
+.rm-card h5 { font-weight: 800; }
+.rm-section-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rm-brand);
+  margin-bottom: 0.45rem;
+}
+.footer-note { text-align: center; color: #8593b0; font-size: 0.82rem; margin-top: 2.2rem; }
+.empty-state { text-align: center; color: #61708c; padding: 2.2rem 1rem; font-size: 0.97rem; }
+
+/* ---------- forms & buttons ---------- */
+.form-control, .form-select {
+  border-radius: 11px;
+  padding: 0.62rem 0.85rem;
+  border: 1.5px solid var(--rm-line);
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--rm-brand);
+  box-shadow: 0 0 0 0.2rem rgba(61, 90, 254, 0.15);
+}
+.form-label { font-weight: 600; font-size: 0.88rem; }
+.btn-rm {
+  background: linear-gradient(135deg, var(--rm-brand), var(--rm-brand-2));
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.72rem 1.3rem;
+  font-weight: 700;
+}
+.btn-rm:hover, .btn-rm:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(61, 90, 254, 0.32);
+  color: #fff;
+}
+.btn-rm:disabled { opacity: 0.72; transform: none; }
+
+/* ---------- auth page ---------- */
+.auth-wrap { display: flex; min-height: 100vh; flex-wrap: wrap; }
+.auth-hero {
+  flex: 1 1 380px;
+  background: linear-gradient(150deg, #1c2a63 0%, #3d5afe 55%, #00b0ff 100%);
+  color: #fff;
+  padding: 3.2rem 2.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-hero h1 { font-size: 2.35rem; font-weight: 800; letter-spacing: -0.5px; }
+.auth-hero .lead { opacity: 0.92; font-size: 1.08rem; max-width: 30rem; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.42rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+  width: fit-content;
+}
+.hero-list { list-style: none; padding: 0; margin: 1.8rem 0 0; }
+.hero-list li { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.62rem 0; font-size: 1rem; opacity: 0.95; }
+.hero-dot {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.auth-panel {
+  flex: 1 1 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.6rem 1.4rem;
+}
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  border: 1px solid var(--rm-line);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(23, 35, 61, 0.12);
+  padding: 2.1rem 2rem;
+}
+.auth-card h2 { font-weight: 800; font-size: 1.55rem; margin-bottom: 0.3rem; }
+.auth-sub { color: #61708c; font-size: 0.95rem; margin-bottom: 1.5rem; }
+.nav-auth {
+  display: flex;
+  gap: 0.5rem;
+  background: #f2f5fb;
+  border-radius: 12px;
+  padding: 0.32rem;
+  margin-bottom: 1.5rem;
+}
+.nav-auth button {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  border-radius: 9px;
+  padding: 0.62rem 0.5rem;
+  font-weight: 700;
+  color: #5b6b8c;
+  font-size: 0.95rem;
+}
+.nav-auth button.active { background: #fff; color: var(--rm-brand); box-shadow: 0 4px 12px rgba(23, 35, 61, 0.1); }
+.brand-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--rm-brand);
+}
+.role-card {
+  border: 1.5px solid var(--rm-line);
+  border-radius: 13px;
+  padding: 0.85rem 0.95rem;
+  cursor: pointer;
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  transition: border-color 0.12s ease, background 0.12s ease;
+  margin-bottom: 0.65rem;
+}
+.role-card:hover { border-color: var(--rm-brand-2); }
+.role-card-selected { border-color: var(--rm-brand); background: rgba(61, 90, 254, 0.07); }
+.role-card input { margin-top: 0.28rem; accent-color: var(--rm-brand); }
+.role-card strong { display: block; font-size: 0.95rem; }
+.role-card small { color: #61708c; font-size: 0.82rem; }
+
+/* ---------- driver: waypoints / trips / bookings ---------- */
+.waypoint-row { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.6rem; }
+.waypoint-row .form-select { flex: 1; }
+.wp-tag {
+  min-width: 92px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(61, 90, 254, 0.1);
+  color: var(--rm-brand);
+  border-radius: 999px;
+  padding: 0.38rem 0.6rem;
+}
+.wp-remove { flex: 0 0 auto; border-radius: 10px; }
+.badge-soft {
+  display: inline-block;
+  background: #f1f5fc;
+  border: 1px solid var(--rm-line);
+  border-radius: 999px;
+  padding: 0.22rem 0.72rem;
+  font-size: 0.82rem;
+  color: #3c4c6b;
+}
+.status-pill { border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; }
+.route-arrow { color: var(--rm-brand-2); padding: 0 0.25rem; }
+.trip-card, .ride-card {
+  border: 1px solid var(--rm-line);
+  border-radius: 15px;
+  background: #fff;
+  transition: box-shadow 0.15s ease;
+}
+.trip-card:hover, .ride-card:hover { box-shadow: 0 18px 44px rgba(23, 35, 61, 0.12); }
+.booking-row {
+  border: 1px solid var(--rm-line);
+  border-radius: 13px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.7rem;
+  background: #fbfcfe;
+}
+.otp-verify-box { display: flex; gap: 0.5rem; align-items: center; }
+.otp-input {
+  width: 8.2rem;
+  text-align: center;
+  letter-spacing: 0.35em;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.verified-pill { border-radius: 999px; padding: 0.42rem 0.95rem; font-size: 0.88rem; }
+
+/* ---------- passenger: booking + result card ---------- */
+.type-toggle { display: flex; gap: 0.65rem; margin-bottom: 1.15rem; }
+.type-toggle button {
+  flex: 1;
+  border: 1.5px solid var(--rm-line);
+  background: #fff;
+  border-radius: 13px;
+  padding: 0.85rem 0.6rem;
+  font-weight: 800;
+  color: #5b6b8c;
+  font-size: 0.98rem;
+}
+.type-toggle button small { display: block; font-weight: 500; font-size: 0.78rem; margin-top: 0.18rem; }
+.type-toggle button.active { border-color: var(--rm-brand); color: var(--rm-brand); background: rgba(61, 90, 254, 0.08); }
+.estimate-amount { color: var(--rm-brand); font-size: 1.12rem; }
+.trip-summary {
+  background: #f2f6fd;
+  border: 1px solid var(--rm-line);
+  border-radius: 12px;
+  padding: 0.72rem 0.95rem;
+  font-size: 0.92rem;
+  margin-bottom: 1.05rem;
+}
+.result-card {
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1c2a63, #3d5afe 60%, #00b0ff);
+  color: #fff;
+  padding: 2.1rem 1.8rem;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(28, 42, 99, 0.35);
+  max-width: 640px;
+  margin: 0 auto;
+}
+.result-card .result-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  opacity: 0.85;
+  font-weight: 700;
+}
+.result-fare { font-size: 2.65rem; font-weight: 800; letter-spacing: -1px; margin: 0.35rem 0 0.1rem; }
+.result-otp-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 1.15rem;
+}
+.otp-digit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.15rem;
+  height: 3.65rem;
+  margin: 0.55rem 0.28rem 0;
+  background: rgba(255, 255, 255, 0.17);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 13px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 2.05rem;
+  font-weight: 800;
+}
+.otp-digit-wide {
+  display: inline-block;
+  margin: 0.55rem 0 0;
+  background: rgba(255, 255, 255, 0.17);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 13px;
+  padding: 0.75rem 1.6rem;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 1.85rem;
+  font-weight: 800;
+}
+.result-meta { opacity: 0.92; font-size: 0.92rem; margin-top: 1.25rem; }
+.btn-on-dark {
+  background: #fff;
+  color: var(--rm-brand);
+  border: 0;
+  border-radius: 12px;
+  padding: 0.72rem 1.5rem;
+  font-weight: 800;
+  margin-top: 1.45rem;
+}
+.btn-on-dark:hover { background: #f0f4ff; color: var(--rm-brand); }
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width: 860px) {
+  .auth-hero { padding: 2.2rem 1.6rem; }
+  .auth-hero h1 { font-size: 1.85rem; }
+  .hero-list { display: none; }
+}
+@media (max-width: 560px) {
+  .result-fare { font-size: 2.15rem; }
+  .otp-digit { width: 2.65rem; height: 3.15rem; font-size: 1.7rem; }
+}
