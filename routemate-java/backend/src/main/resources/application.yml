@@ -1,12 +1,14 @@
 server:
-  port: 8081
+  # Render (and Docker) inject a PORT env var — bind to it; default 8081 locally.
+  port: ${PORT:8081}
 
 spring:
   application:
     name: routemate-backend
   datasource:
     # MySQL 8.x — database is created automatically if missing.
-    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:routemate}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    # DB_URL overrides everything (handy for external DBs like TiDB Cloud).
+    url: ${DB_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:routemate}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
     username: ${DB_USER:root}
     password: ${DB_PASS:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,8 +26,9 @@ routemate:
     secret: ${ROUTEMATE_JWT_SECRET:RouteMate-Dev-Secret-Key-Please-Override-In-Production-0123456789}
     expiration-hours: 24
   cors:
-    # Origins allowed to call the API directly (the Vite dev server proxies /api by default).
-    allowed-origins: http://localhost:5173,http://127.0.0.1:5173,http://localhost:5500,http://127.0.0.1:5500
+    # Origins allowed to call the API directly. In production set:
+    #   ROUTEMATE_CORS_ORIGINS=https://your-site.vercel.app
+    allowed-origins: ${ROUTEMATE_CORS_ORIGINS:http://localhost:5173,http://127.0.0.1:5173,http://localhost:5500,http://127.0.0.1:5500}
   search:
     # Corridor search: how far (km) pickup/drop may be from the trip polyline.
     corridor-km: 50
