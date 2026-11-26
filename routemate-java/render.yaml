@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: routemate-backend
+    runtime: java
+    rootDir: routemate-java/backend
+    buildCommand: mvn -DskipTests package
+    startCommand: java -jar target/routemate-backend-1.0.0.jar
+    healthCheckPath: /api/v1/health
+    plan: free
+    envVars:
+      - key: JAVA_VERSION
+        value: "17"
+      - key: SPRING_PROFILES_ACTIVE
+        value: postgres
+      - key: DB_HOST
+        fromDatabase:
+          name: routemate-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: routemate-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: routemate-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: routemate-db
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: routemate-db
+          property: password
+      - key: ROUTEMATE_JWT_SECRET
+        generateValue: true
+      - key: ROUTEMATE_CORS_ORIGINS
+        sync: false
+
+databases:
+  - name: routemate-db
+    databaseName: routemate
+    plan: free
