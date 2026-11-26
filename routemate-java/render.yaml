@@ -1,15 +1,13 @@
 services:
   - type: web
     name: routemate-backend
-    runtime: java
+    runtime: docker
     rootDir: routemate-java/backend
-    buildCommand: mvn -DskipTests package
-    startCommand: java -jar target/routemate-backend-1.0.0.jar
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     healthCheckPath: /api/v1/health
     plan: free
     envVars:
-      - key: JAVA_VERSION
-        value: "17"
       - key: SPRING_PROFILES_ACTIVE
         value: postgres
       - key: DB_HOST
